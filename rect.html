@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fillRect</title>
+  <style>
+    canvas {
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+  <script>
+    //★ context 메서드를 사용하는것 
+
+    //fillRect : 사각형 만들기
+    //cleaReat : 지우기
+    //strokeRect : 선으로 그려짐(only Stroke)
+    const canvas = document.querySelector('.canvas');
+    const context = canvas.getContext('2d');
+    console.log(context)
+
+    context.fillStyle = 'pink'
+    context.fillRect(50, 50, 100, 100);
+    context.fillStyle = 'salmon'
+    context.fillRect(0, 0, 100, 100);
+
+    // 지우기(패스파인더 생각하면 될듯하다)
+    context.clearRect(75, 75, 50, 50);
+
+    //선으로 그림
+    context.strokeRect(150, 150, 100, 100);
+  </script>
+</body>
+
+</html>

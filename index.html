@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice</title>
+  <script src="./modernizr-custom.js"></script>
+  <style>
+    .draw {
+      background-color: #ddd;
+    }
+
+    .canvas2 {
+      width: 500px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>캔버스 사이즈 지정</h1>
+  <canvas class="draw canvas1" width="500" height="300"></canvas>
+  <canvas class="draw canvas2" width="1000" height="600"></canvas>
+  <!-- 캔버스 크기를 기존 디자인 사이즈의 2배로 해놓고 css로 원래 크기를 맞춰줌(해상도 떄문에) -->
+  <canvas>이브라우저는 캔버스를 지원하지 않음</canvas>
+  <script>
+    // canvas 지원 여부 확인 1 모더나이저 사용
+    if (Modernizr.canvas) {
+      console.log('canvas를지원하는 브라우저')
+    }
+
+    // canvas 지원 여부 확인 2
+    // const canvas = document.querySelector("canvas")
+    // console.log(canvas.getContext);
+
+    // if (canvas.getContext) {
+    //   console.log('캔버스지원')
+    // };
+    const canvas = document.querySelector('.canvas1')
+    const canvas2 = document.querySelector('.canvas2')
+    const context = canvas.getContext('2d');
+    const context2 = canvas2.getContext('2d');
+
+    context.arc(100, 100, 50, 0, Math.PI * 2, false);
+    context2.arc(100, 100, 50, 0, Math.PI * 2, false);
+    context.fill();
+    context2.fill();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arc</title>
+</head>
+<style>
+  canvas {
+    background: #eee;
+  }
+</style>
+
+<body>
+  <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+  <script>
+    //beginPath
+    //arc
+    //closePath
+    const canvas = document.querySelector('.canvas');
+    const context = canvas.getContext('2d');
+
+    // 라디안 공식
+    function toRadian(deg) {
+      return deg * Math.PI / 180;
+    }
+    context.beginPath();
+    context.arc(300, 200, 50, 0, toRadian(360), true); //호그리기 메서드(x,y,지름,0(true(시계방향으로 그림)/false(반시계반향으로그림))
+    context.stroke();
+    // context.stroke();
+    // context.beginPath();
+    // context.arc(200, 200, 20, 0, toRadian(360), true);
+    context.beginPath();
+    context.moveTo(20, 20);
+    context.lineTo(50, 70);
+    context.stroke();
+    context.beginPath();
+    context.arc(25, 28, 50, 0, toRadian(60), false);
+    context.stroke();
+    context.beginPath();
+    context.moveTo(20, 20);
+    context.lineTo(74, 28);
+    context.stroke();
+    // context.fill();
+  </script>
+</body>
+
+</html>
